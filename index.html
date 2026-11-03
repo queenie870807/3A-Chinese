@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三年级语文（上册）材料库</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#2b2e33; --muted:#6b7280; --line:#e9ebef; --line2:#f0f2f5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:36px 22px 56px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;color:#9aa1a8;font-weight:600;}
+  header h1{font-size:25px;margin:7px 0 7px;font-weight:700;letter-spacing:.5px;}
+  .sub{color:var(--muted);font-size:13.5px;margin:0;}
+
+  .stats{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 0;}
+  .stat{flex:1 1 130px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:15px 16px;box-shadow:0 1px 2px rgba(0,0,0,.03);}
+  .stat .n{font-size:25px;font-weight:700;line-height:1;}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:7px;}
+
+  .intro{margin:20px 0 4px;font-size:13.5px;color:#555;background:#fff;
+    border:1px solid var(--line);border-left:4px solid #5a8fd6;border-radius:10px;padding:12px 16px;}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 2px;font-size:12px;color:var(--muted);}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+  .cat{margin-top:32px;}
+  .cat-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;}
+  .cat-bar{width:5px;height:18px;border-radius:3px;align-self:center;}
+  .cat-head h2{font-size:17px;margin:0;font-weight:700;}
+  .cat-head .cdesc{font-size:12.5px;color:var(--muted);}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:680px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--line);border-left:4px solid #ccc;
+    border-radius:12px;padding:15px 17px;box-shadow:0 1px 3px rgba(0,0,0,.04);
+    transition:box-shadow .15s,transform .15s;}
+  .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.07);}
+  .card h3{font-size:15px;margin:0 0 10px;font-weight:600;line-height:1.45;}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+  .b{font-size:11.5px;padding:2px 9px;border-radius:999px;background:var(--line2);color:#555;
+     border:1px solid #e6e8ec;white-space:nowrap;}
+  .b.src{background:#eef4fb;color:#3a6ea5;border-color:#dce8f5;}
+  .b.ok{background:#eaf6ee;color:#2f8a4e;border-color:#d3ecdb;}
+  .b.warn{background:#fff4e0;color:#9a6b12;border-color:#f4e3bd;}
+  .summary{font-size:13.5px;color:#525863;margin:2px 0 13px;line-height:1.7;}
+  .open{display:inline-block;font-size:12.5px;color:#fff;background:#3a6ea5;
+    padding:6px 14px;border-radius:8px;text-decoration:none;font-weight:500;}
+  .open:hover{opacity:.92;}
+
+  footer{margin-top:40px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);
+    padding-top:16px;line-height:1.85;}
+  footer b{color:#525863;}
+  footer .removed{margin-top:8px;color:#9aa1a8;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">三年级 · 上册</div>
+  <header><h1>语文学习材料库</h1><p class="sub">由微信聊天记录整理归类 · 更新于 2026-11-02</p></header>
+
+  <div class="stats">
+    <div class="stat"><div class="n" id="s-total">0</div><div class="l">文件总数</div></div>
+    <div class="stat"><div class="n" id="s-disk" style="color:#2f8a4e">0</div><div class="l">可一键打开</div></div>
+    <div class="stat"><div class="n" id="s-cat">0</div><div class="l">分类</div></div>
+    <div class="stat"><div class="n" id="s-ans" style="color:#2f8a4e">0</div><div class="l">含答案 / 评分</div></div>
+  </div>
+
+  <div class="intro">
+    资料由「公子升」「小6看家」两个微信群聊导出，本库仅收录实际已下载并读取的 <b>7 个文件</b>；另有 7 个因导出时未下载且原件已不可得，已从库中移除（见页脚）。
+  </div>
+
+  <div class="legend">
+    <span><i class="dot" style="background:#2f8a4e"></i>已下载·可打开</span>
+    <span><i class="dot" style="background:#3a6ea5"></i>来源 / 类型</span>
+    <span><i class="dot" style="background:#2f8a4e"></i>含答案 / 评分</span>
+    <span><i class="dot" style="background:#9a6b12"></i>答案未标注</span>
+  </div>
+
+  <div id="cats"></div>
+
+  <footer>
+    <b>如何打开文件：</b>点击卡片下方「打开文件」需在<b>本地服务器</b>或<b>直接以文件方式打开本页</b>时可用——最简单是从磁盘双击 <code>index.html</code>，相对链接天然有效。
+    <div class="removed">已从库移除（原件不可得）：句子排序、期中复习汇总、复课申请单、统编版课本、作文范文、四字词语预习、课课贴。</div>
+  </footer>
+</div>
+
+<script>
+const cats=[
+ {key:'C1',name:'课本与课内基础（日常学习）',color:'#3f9e8c',desc:'教材、课课贴、每课知识点与预习积累，配合课本日常使用'},
+ {key:'C2',name:'专项突破（字词句 / 标点病句 / 句子排序）',color:'#e0905a',desc:'针对薄弱环节的专项训练'},
+ {key:'C3',name:'阅读理解',color:'#5a8fd6',desc:'阅读考点、答题模板与阅读押题'},
+ {key:'C4',name:'作文',color:'#c77fb3',desc:'优秀范文与写作参考'},
+ {key:'C5',name:'期中复习与模拟卷',color:'#e0a83a',desc:'期中复习汇总与过关模拟练习'}
+];
+const items=[
+ {cat:'C1',name:'26秋三上语文每课预习必背知识点',src:'公子升 / 小6看家（实取小6看家）',type:'课内基础 PDF',pages:'38 页',answer:'—',disk:true,file:'meike_bixu_zhishidian.pdf',
+  summary:'三上逐课预习必背知识点：按课梳理识字注音、词语听写、生字组词、近反义词、形近字、词语积累、句子仿写与课文主题，覆盖全册约 33 课。'},
+
+ {cat:'C2',name:'三上语文期中重难点专项训练（标点符号+修改病句）含答案',src:'公子升',type:'专项 PDF',pages:'36 页',answer:'含答案',disk:true,file:'zhuanxiang_biaodian_bingju_36ye.pdf',
+  summary:'期中重难点专项：标点符号（提示语在前/中/后加标点规则与填空）+ 修改病句，附完整答案，共 36 页。'},
+ {cat:'C2',name:'期中基础押题（10.31）',src:'公子升',type:'基础专项 PDF',pages:'约 3 页（图片版）',answer:'未标注',disk:true,file:'jichu_yaoti_10.31.pdf',
+  summary:'期中基础押题：按字音、字词填空、成语、偏旁（“口”字旁）分类归纳，含多音字、词语表与成语积累。'},
+
+ {cat:'C3',name:'2026秋三上语文阅读理解考点与答题模板',src:'公子升',type:'阅读 PDF',pages:'97 页',answer:'—',disk:true,file:'yuedu_kaojiao_muban_97ye.pdf',
+  summary:'按三上 8 个单元梳理阅读考点 + 答题模板，并配阅读篇目（乡村小学、北大荒的秋天、拇指姑娘等），系统性强。'},
+ {cat:'C3',name:'期中阅读押题（10.30）',src:'公子升',type:'阅读 / 习作 PDF',pages:'11 页',answer:'未标注',disk:true,file:'yuedu_yaoti_10.30.pdf',
+  summary:'期中阅读押题：含“梳理概括文章内容”等阅读题型与答题方法；首页另附单元习作（写人 / 记事 / 想象 / 童话）押题概览。'},
+
+ {cat:'C5',name:'模拟1 · 过关模拟练习',src:'公子升',type:'模拟卷 DOCX',pages:'—',answer:'含评分',disk:true,file:'moni1.docx',
+  summary:'2026 学年第一学期三年级语文过关模拟练习 1：看拼音写词语、圈正确读音、古诗词默写等，带“等第 + 家长签名”过关格式。'},
+ {cat:'C5',name:'模拟2 · 过关模拟练习',src:'公子升',type:'模拟卷 DOCX',pages:'—',answer:'含评分',disk:true,file:'moni2.docx',
+  summary:'过关模拟练习 2：题型同模拟 1（看拼音写词语、多音字、古诗词默写等）。'}
+];
+
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function badge(txt,cls){return `<span class="b ${cls}">${esc(txt)}</span>`;}
+function card(it){
+  const diskB=badge('已下载·可打开','ok');
+  let ansB= (it.answer==='含答案'||it.answer==='含评分') ? badge(it.answer,'ok') : badge('答案未标注','warn');
+  const open=`<a class="open" href="./${it.file}" target="_blank" rel="noopener">打开文件</a>`;
+  return `<div class="card" style="border-left-color:${catColor(it.cat)}">
+    <h3>${esc(it.name)}</h3>
+    <div class="badges">
+      ${badge('来源：'+it.src,'src')}
+      ${badge(it.type,'')}
+      ${badge('页数：'+it.pages,'')}
+      ${ansB}
+      ${diskB}
+    </div>
+    <div class="summary">${esc(it.summary)}</div>
+    ${open}
+  </div>`;
+}
+function catColor(k){return (cats.find(c=>c.key===k)||{}).color||'#ccc';}
+
+let html='',total=items.length,disk=items.filter(i=>i.disk).length,
+    ans=items.filter(i=>i.answer==='含答案'||i.answer==='含评分').length;
+cats.forEach(c=>{
+  const list=items.filter(i=>i.cat===c.key);
+  if(!list.length) return;
+  html+=`<div class="cat">
+    <div class="cat-head"><span class="cat-bar" style="background:${c.color}"></span>
+      <h2>${esc(c.name)}</h2><span class="cdesc">${list.length} 个文件</span></div>
+    <div class="grid">${list.map(card).join('')}</div></div>`;
+});
+document.getElementById('cats').innerHTML=html;
+document.getElementById('s-total').textContent=total;
+document.getElementById('s-disk').textContent=disk;
+document.getElementById('s-cat').textContent=cats.filter(c=>items.some(i=>i.cat===c.key)).length;
+document.getElementById('s-ans').textContent=ans;
+</script>
+</body>
+</html>
