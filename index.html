@@ -50,6 +50,17 @@
     padding-top:12px;line-height:1.8;}
   footer b{color:#525863;}
   footer .removed{margin-top:6px;color:#aab0b7;}
+
+  /* 移动端：标题换行不截断、元信息下移、「打开」变整行大按钮 */
+  @media(max-width:600px){
+    .wrap{padding:16px 14px 28px;}
+    header h1{font-size:20px;}
+    .cat-head h2{font-size:13.5px;}
+    .list{border-radius:10px;}
+    .row-main{flex-wrap:wrap;align-items:center;padding:12px 14px;}
+    .rtitle{flex:1 1 100%;white-space:normal;margin-bottom:3px;line-height:1.45;}
+    .ropen{flex:1 1 100%;text-align:center;margin:8px 14px 2px 0;padding:10px 0;font-size:13px;}
+  }
 </style>
 </head>
 <body>
