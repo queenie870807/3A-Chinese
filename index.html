@@ -46,11 +46,6 @@
   .rdetail-inner{padding:0 16px 13px 17px;font-size:13px;color:#5a6068;line-height:1.75;}
   .rdetail-inner .src{color:#7a818a;font-size:12px;margin-top:6px;}
 
-  footer{margin-top:24px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);
-    padding-top:12px;line-height:1.8;}
-  footer b{color:#525863;}
-  footer .removed{margin-top:6px;color:#aab0b7;}
-
   .dmeta{display:none;}   /* 手机端把「类型·页数·答案」移进展开面板 */
 
   /* 移动端：单行标题 + 描边小按钮，保证 8 条一屏排完；详情点开再看 */
@@ -71,7 +66,6 @@
     .ropen:hover{background:#f3f8fd;}
     .rdetail-inner{padding:0 14px 11px 15px;font-size:12.5px;}
     .dmeta{display:block;color:#7a818a;font-size:12px;margin-top:4px;}
-    footer{margin-top:18px;font-size:11.5px;padding-top:10px;}
   }
 </style>
 </head>
@@ -81,11 +75,6 @@
   <header><h1>语文学习材料库</h1><p class="meta" id="meta"></p></header>
 
   <div id="cats"></div>
-
-  <footer>
-    <b>如何打开：</b>点击「打开」需在本地服务器或直接双击 <code>index.html</code> 时可用——最稳妥是从磁盘双击本页，相对链接天然有效。点击资料行可展开详情。
-    <div class="removed">已从库移除（原件不可得）：句子排序、期中复习汇总、复课申请单、统编版课本、作文范文、四字词语预习、课课贴。</div>
-  </footer>
 </div>
 
 <script>
