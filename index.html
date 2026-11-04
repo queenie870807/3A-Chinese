@@ -51,15 +51,27 @@
   footer b{color:#525863;}
   footer .removed{margin-top:6px;color:#aab0b7;}
 
-  /* 移动端：标题换行不截断、元信息下移、「打开」变整行大按钮 */
+  .dmeta{display:none;}   /* 手机端把「类型·页数·答案」移进展开面板 */
+
+  /* 移动端：单行标题 + 描边小按钮，保证 8 条一屏排完；详情点开再看 */
   @media(max-width:600px){
-    .wrap{padding:16px 14px 28px;}
-    header h1{font-size:20px;}
-    .cat-head h2{font-size:13.5px;}
-    .list{border-radius:10px;}
-    .row-main{flex-wrap:wrap;align-items:center;padding:12px 14px;}
-    .rtitle{flex:1 1 100%;white-space:normal;margin-bottom:3px;line-height:1.45;}
-    .ropen{flex:1 1 100%;text-align:center;margin:8px 14px 2px 0;padding:10px 0;font-size:13px;}
+    .wrap{padding:14px 12px 22px;}
+    .eyebrow{font-size:11px;letter-spacing:2px;}
+    header h1{font-size:19px;margin:5px 0 3px;}
+    .meta{font-size:11.5px;}
+    .cat{margin-top:14px;}
+    .cat-head{margin-bottom:5px;}
+    .cat-head h2{font-size:13px;}
+    .row-main{padding:9px 12px;gap:8px;}
+    .rtitle{font-size:13.5px;}
+    .rmeta{display:none;}
+    .chev{font-size:11px;}
+    .ropen{margin-right:10px;padding:4px 10px;font-size:12px;
+      background:transparent;border:1px solid #cfe0f2;border-radius:6px;color:#3a6ea5;}
+    .ropen:hover{background:#f3f8fd;}
+    .rdetail-inner{padding:0 14px 11px 15px;font-size:12.5px;}
+    .dmeta{display:block;color:#7a818a;font-size:12px;margin-top:4px;}
+    footer{margin-top:18px;font-size:11.5px;padding-top:10px;}
   }
 </style>
 </head>
@@ -120,7 +132,7 @@ function row(it){
       <span class="chev">▸</span>
     </div>
     <a class="ropen" href="./${it.file}" target="_blank" rel="noopener">打开</a>
-    <div class="rdetail"><div class="rdetail-inner"><b style="color:#3a3f45">${esc(it.name)}</b><div style="margin-top:6px">${esc(it.summary)}</div><div class="src">来源：${esc(it.src)}</div></div></div>
+    <div class="rdetail"><div class="rdetail-inner"><b style="color:#3a3f45">${esc(it.name)}</b><div class="dmeta">${esc(it.type)} · ${esc(it.pages)} · ${esc(ansTxt(it.answer))}</div><div style="margin-top:6px">${esc(it.summary)}</div><div class="src">来源：${esc(it.src)}</div></div></div>
   </div>`;
 }
 
